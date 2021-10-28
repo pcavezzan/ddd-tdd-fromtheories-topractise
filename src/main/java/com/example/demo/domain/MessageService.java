@@ -10,7 +10,7 @@ public class MessageService implements MessagePort {
 
     @Override
     public Message getWelcomeMessage() {
-        return messageRepository.findByCode("Welcome");
+        return messageRepository.findByCode(CodeReferential.WELCOME.getCode());
     }
 
 }
