@@ -1,15 +1,27 @@
 package com.example.demo.domain;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class MessageServiceTest {
 
-    private final MessageService messageService = new MessageService();
+    @Mock
+    private MessageRepository messageRepository;
+
+    @InjectMocks
+    private MessageService messageService;
 
     @Test
     void shouldReturnWelcomeMessage() {
+        when(messageRepository.findByCode("Welcome")).thenReturn(new Message("Welcome to TZebra"));
+
         final var welcomeMessage = messageService.getWelcomeMessage();
 
         assertThat(welcomeMessage).isEqualTo(new Message("Welcome to TZebra"));
