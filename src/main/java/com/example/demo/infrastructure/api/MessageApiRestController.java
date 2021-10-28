@@ -1,6 +1,5 @@
 package com.example.demo.infrastructure.api;
 
-import com.example.demo.domain.MessagePort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageApiRestController {
 
     @Autowired
-    private MessagePort messagePortAdapter;
+    private MessagePortAdapter messagePortAdapter;
 
     @GetMapping("/welcome")
     public MessageView getWelcomeMessage() {

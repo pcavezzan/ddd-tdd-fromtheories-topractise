@@ -1,6 +1,5 @@
 package com.example.demo.infrastructure.api;
 
-import com.example.demo.domain.MessagePort;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,14 +15,14 @@ import static org.mockito.Mockito.when;
 class MessageApiRestControllerTest {
 
     @Mock
-    private MessagePort messagePort;
+    private MessagePortAdapter messagePortAdapter;
 
     @InjectMocks
     private MessageApiRestController controller;
 
     @Test
     void getWelcomeMessage() {
-        when(messagePort.getWelcomeMessage()).thenReturn(aWelcomeMessage());
+        when(messagePortAdapter.getWelcomeMessage()).thenReturn(aWelcomeMessage());
 
         final var welcomeMessage = controller.getWelcomeMessage();
 

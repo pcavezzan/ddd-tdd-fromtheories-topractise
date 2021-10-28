@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.domain.MessageService;
+import com.example.demo.domain.MessagePort;
 import com.example.demo.infrastructure.api.MessagePortAdapter;
 import com.example.demo.infrastructure.repositories.InMemoryMessageRepository;
 import org.springframework.boot.SpringApplication;
@@ -24,12 +24,12 @@ public class DemoApplication {
     }
 
     @Bean
-    public MessageService messageService(InMemoryMessageRepository inMemoryMessageRepository) {
-        return new MessageService(inMemoryMessageRepository);
+    public MessagePort messagePort(InMemoryMessageRepository inMemoryMessageRepository) {
+        return new MessagePort(inMemoryMessageRepository);
     }
 
     @Bean
-    public MessagePortAdapter messagePortAdapter(final MessageService messageService) {
-        return new MessagePortAdapter(messageService);
+    public MessagePortAdapter messagePortAdapter(final MessagePort messagePort) {
+        return new MessagePortAdapter(messagePort);
     }
 }

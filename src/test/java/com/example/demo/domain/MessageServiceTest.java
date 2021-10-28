@@ -17,13 +17,13 @@ class MessageServiceTest {
     private MessageRepository messageRepository;
 
     @InjectMocks
-    private MessageService messageService;
+    private MessagePort messagePort;
 
     @Test
     void shouldReturnWelcomeMessage() {
         when(messageRepository.findByCode("Welcome")).thenReturn(aWelcomeMessage());
 
-        final var welcomeMessage = messageService.getWelcomeMessage();
+        final var welcomeMessage = messagePort.getWelcomeMessage();
 
         assertThat(welcomeMessage).isEqualTo(aWelcomeMessage());
     }

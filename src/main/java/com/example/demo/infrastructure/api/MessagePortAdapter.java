@@ -3,7 +3,7 @@ package com.example.demo.infrastructure.api;
 import com.example.demo.domain.Message;
 import com.example.demo.domain.MessagePort;
 
-public class MessagePortAdapter implements MessagePort {
+public class MessagePortAdapter {
 
     private final MessagePort messagePort;
 
@@ -11,7 +11,6 @@ public class MessagePortAdapter implements MessagePort {
         this.messagePort = messagePort;
     }
 
-    @Override
     public Message getWelcomeMessage() {
         return messagePort.getWelcomeMessage();
     }
