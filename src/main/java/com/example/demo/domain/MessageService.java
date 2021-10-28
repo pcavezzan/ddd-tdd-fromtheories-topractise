@@ -2,9 +2,11 @@ package com.example.demo.domain;
 
 public class MessageService implements MessagePort {
 
+    private MessageRepository messageRepository;
+
     @Override
     public Message getWelcomeMessage() {
-        return new Message("Welcome to TZebra");
+        return messageRepository.findByCode("Welcome");
     }
 
 }
