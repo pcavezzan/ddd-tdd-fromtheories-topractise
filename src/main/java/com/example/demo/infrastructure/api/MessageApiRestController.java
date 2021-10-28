@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageApiRestController {
 
     @Autowired
-    private MessagePort messagePort;
+    private MessagePort messagePortAdapter;
 
     @GetMapping("/welcome")
     public MessageView getWelcomeMessage() {
-        final var welcomeMessage = messagePort.getWelcomeMessage();
+        final var welcomeMessage = messagePortAdapter.getWelcomeMessage();
         return MessageView.of(welcomeMessage);
     }
 
