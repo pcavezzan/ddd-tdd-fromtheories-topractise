@@ -1,4 +1,6 @@
-package com.example.demo.domain;
+package com.example.demo.domain.message;
+
+import com.example.demo.domain.core.CodeReferential;
 
 public class MessageService implements MessagePort {
 

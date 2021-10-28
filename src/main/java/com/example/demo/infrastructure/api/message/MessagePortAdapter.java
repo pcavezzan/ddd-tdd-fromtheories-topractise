@@ -1,7 +1,7 @@
-package com.example.demo.infrastructure.api;
+package com.example.demo.infrastructure.api.message;
 
-import com.example.demo.domain.Message;
-import com.example.demo.domain.MessagePort;
+import com.example.demo.domain.message.Message;
+import com.example.demo.domain.message.MessagePort;
 
 public class MessagePortAdapter implements MessagePort {
 

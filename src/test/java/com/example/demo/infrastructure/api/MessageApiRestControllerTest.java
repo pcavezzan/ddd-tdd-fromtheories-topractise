@@ -1,6 +1,7 @@
 package com.example.demo.infrastructure.api;
 
-import com.example.demo.domain.MessagePort;
+import com.example.demo.domain.message.MessagePort;
+import com.example.demo.infrastructure.api.message.MessageApiRestController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

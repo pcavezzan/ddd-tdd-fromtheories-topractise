@@ -1,5 +1,8 @@
 package com.example.demo.domain;
 
+import com.example.demo.domain.core.CodeReferential;
+import com.example.demo.domain.message.MessageRepository;
+import com.example.demo.domain.message.MessageService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,7 +24,7 @@ class MessageServiceTest {
 
     @Test
     void shouldReturnWelcomeMessage() {
-        when(messageRepository.findByCode("Welcome")).thenReturn(aWelcomeMessage());
+        when(messageRepository.findByCode(CodeReferential.WELCOME.getCode())).thenReturn(aWelcomeMessage());
 
         final var welcomeMessage = messageService.getWelcomeMessage();
 

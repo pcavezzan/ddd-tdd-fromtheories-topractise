@@ -1,7 +1,8 @@
 package com.example.demo.testing;
 
-import com.example.demo.domain.Message;
-import com.example.demo.infrastructure.api.MessageView;
+import com.example.demo.domain.core.Code;
+import com.example.demo.domain.message.Message;
+import com.example.demo.infrastructure.api.message.MessageView;
 
 public class Factories {
     public static Message aWelcomeMessage() {
@@ -20,7 +21,15 @@ public class Factories {
         return "This is a test";
     }
 
-    public static String aCode() {
+    public static Code aCode() {
+        return aCode(aCodeValue());
+    }
+
+    public static Code aCode(String value) {
+        return new Code(value);
+    }
+
+    public static String aCodeValue() {
         return "Test";
     }
 }
