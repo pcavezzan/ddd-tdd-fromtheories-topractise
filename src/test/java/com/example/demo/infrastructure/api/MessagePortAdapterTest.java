@@ -23,10 +23,14 @@ class MessagePortAdapterTest {
 
     @Test
     void shouldReturnWelcomeMessage() {
-        when(messagePort.getWelcomeMessage()).thenReturn(new Message("Welcome to TZebra"));
+        when(messagePort.getWelcomeMessage()).thenReturn(aWelcomeMessage());
 
         final var welcomeMessage = messagePortAdapter.getWelcomeMessage();
 
-        assertThat(welcomeMessage).isEqualTo(new Message("Welcome to TZebra"));
+        assertThat(welcomeMessage).isEqualTo(aWelcomeMessage());
+    }
+
+    private Message aWelcomeMessage() {
+        return new Message("Welcome to TZebra");
     }
 }

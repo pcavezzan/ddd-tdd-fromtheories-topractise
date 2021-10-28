@@ -22,10 +22,18 @@ class MessageApiRestControllerTest {
 
     @Test
     void getWelcomeMessage() {
-        when(messagePort.getWelcomeMessage()).thenReturn(new Message("Welcome to TZebra"));
+        when(messagePort.getWelcomeMessage()).thenReturn(aWelcomeMessage());
 
         final var welcomeMessage = controller.getWelcomeMessage();
 
-        assertThat(welcomeMessage).isEqualTo(new MessageView("Welcome to TZebra"));
+        assertThat(welcomeMessage).isEqualTo(aWelcomeMessageView());
+    }
+
+    private MessageView aWelcomeMessageView() {
+        return new MessageView("Welcome to TZebra");
+    }
+
+    private Message aWelcomeMessage() {
+        return new Message("Welcome to TZebra");
     }
 }

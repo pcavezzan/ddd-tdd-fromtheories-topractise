@@ -20,10 +20,14 @@ class MessageServiceTest {
 
     @Test
     void shouldReturnWelcomeMessage() {
-        when(messageRepository.findByCode("Welcome")).thenReturn(new Message("Welcome to TZebra"));
+        when(messageRepository.findByCode("Welcome")).thenReturn(aWelcomeMessage());
 
         final var welcomeMessage = messageService.getWelcomeMessage();
 
-        assertThat(welcomeMessage).isEqualTo(new Message("Welcome to TZebra"));
+        assertThat(welcomeMessage).isEqualTo(aWelcomeMessage());
+    }
+
+    private Message aWelcomeMessage() {
+        return new Message("Welcome to TZebra");
     }
 }
