@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+import static com.example.demo.testing.Factories.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InMemoryMessageRepositoryTest {
@@ -24,23 +25,8 @@ class InMemoryMessageRepositoryTest {
     void shouldReturnEmptyMessageForNonExistentCode() {
         final var test = inMemoryMessageRepository.findByCode("DOES_NOT_EXIST");
 
-        assertThat(test).isEqualTo(aMessage(""));
+        assertThat(test).isEqualTo(Message.of(""));
 
     }
 
-    private Message aMessage() {
-        return aMessage(aMessageValue());
-    }
-
-    private Message aMessage(String value) {
-        return new Message(value);
-    }
-
-    private String aMessageValue() {
-        return "This is a test";
-    }
-
-    private String aCode() {
-        return "Test";
-    }
 }

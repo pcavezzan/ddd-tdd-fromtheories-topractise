@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static com.example.demo.testing.Factories.aWelcomeMessage;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -27,7 +28,4 @@ class MessageServiceTest {
         assertThat(welcomeMessage).isEqualTo(aWelcomeMessage());
     }
 
-    private Message aWelcomeMessage() {
-        return new Message("Welcome to TZebra");
-    }
 }

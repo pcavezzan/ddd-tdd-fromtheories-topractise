@@ -1,6 +1,5 @@
 package com.example.demo.infrastructure.api;
 
-import com.example.demo.domain.Message;
 import com.example.demo.domain.MessagePort;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static com.example.demo.testing.Factories.aWelcomeMessage;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -28,9 +28,5 @@ class MessagePortAdapterTest {
         final var welcomeMessage = messagePortAdapter.getWelcomeMessage();
 
         assertThat(welcomeMessage).isEqualTo(aWelcomeMessage());
-    }
-
-    private Message aWelcomeMessage() {
-        return new Message("Welcome to TZebra");
     }
 }
